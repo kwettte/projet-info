@@ -25,8 +25,8 @@ if __name__ == "__main__":
     A101.ajouter_occupant('Beta')
     A101.ajouter_occupant('Charlie')
 
-    action = input('Que voulez vous faire ? Localiser une salle ? Trouver une salle pour un groupe ?')
-    if action == 'Localiser une salle' or 'localiser une salle':
+    action = input('Que voulez vous faire ? Localiser une salle (1) ? Trouver une salle pour un groupe (2) ?')
+    if action.lower() == '1':
         loc = input('Quelle est la salle désirée ?')
         if loc not in ENSTA.salles:
             print('pas de salle trouvée')
@@ -35,16 +35,19 @@ if __name__ == "__main__":
             print('nom de la salle :', loc.nommer())
             print('localisation de la salle', loc.localiser())
 
-    if action == 'trouver une salle pour une groupe':
+    elif action == '2':
         grp = input('Quel est le groupe ?')
         nbr = input('Combien de personnes ?')
         acti = input("Quelle est l'activité ?")
         debut = input("Quelle est l'heure de début ?")
         fin = input("Quelle est l'heure de fin ?")
 
+    else:
+        print('pas de demande formulée, à + ')
+
 
 
     # affichage des informations de la salle
-    print('nom de la salle :',A101.nommer())
-    print('localisation de la salle',A101.localiser())
+    print('nom de la salle :', A101.nommer())
+    print('localisation de la salle', A101.localiser())
     print(A101)

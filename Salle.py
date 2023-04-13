@@ -5,7 +5,7 @@ class local():
     classe
     """
 
-    def __init__(self,usage,nom,capacite,batiment,etage):
+    def __init__(self, usage, nom, capacite, batiment, etage):
         """
         Créer une salle à une localisation précise (batiment et étage)
         et une capacité d'occupants prédéfinie
