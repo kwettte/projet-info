@@ -1,6 +1,6 @@
 class acti():
 
-    def __init__(self, nom, debut: str, fin: str, groupe):
+    def __init__(self, nom, debut: str, fin: str, groupe, usage: str):
         """
         Créer une une activité
         :param nom:
@@ -14,6 +14,8 @@ class acti():
         self.__fin = fin
         self.fin = fin
         self.groupe = groupe
+        self.usage = usage
+        self.info = False
 
     @property
     def debut(self):
@@ -58,7 +60,8 @@ class TD_info(acti):
 
     def __init__(self,eleves,nom):
         super().__init__(eleves, nom)
-        self.usage = "TD_info"
+        self.usage = "TD"
+        self.info = True
 
 class CM(acti):
 
