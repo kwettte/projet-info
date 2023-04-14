@@ -69,3 +69,7 @@ class CM(acti):
         super().__init__(eleves, nom)
         self.usage = "CM"
 
+class examen(acti):
+
+    def __init__(self):
+        super().__init__()

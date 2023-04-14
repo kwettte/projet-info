@@ -13,10 +13,12 @@ class groupe():
 
     def ajouter_participant(self, participant):
         self.membres.append(participant)
+        self.nombre += 1
 
     def enlever_participant(self, participant):
         if participant in self.membres:
             self.membres.remove(participant)
+            self.nombre -= 1
 
     def trouver_salle(self, salles, debut, fin):
         # on parcourt toutes les salles et on vérifie si elles sont disponibles
