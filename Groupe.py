@@ -6,19 +6,31 @@ class groupe():
 
     def __init__(self, nom: str, membres : list,etat : bool, acti: str, annee : int):
         self.nom = nom
-        self.membres = membres
+        self.__membres = membres # la liste des participants
         self.etat = etat # indique si le groupe d'élèves est placé dans une salle
         self.activite = acti
-        self.nombre = len(membres)
+        self.__nombre = len(membres)
+        self.annee = annee # annee de la promotion
 
-    def ajouter_participant(self, participant):
-        self.membres.append(participant)
-        self.nombre += 1
+    @property
+    def membres(self):
+        return self.__membres
 
-    def enlever_participant(self, participant):
-        if participant in self.membres:
-            self.membres.remove(participant)
-            self.nombre -= 1
+    @property
+    def nombre(self):
+        return self.__nombre
+
+    @membres.setter
+    def ajouter_participant(self,participant: str):
+        self.__membres.append(participant)
+        self.__nombre += 1
+
+
+    @membres.setter
+    def enlever_participant(self,participant):
+        self.__membres.remove(participant)
+        self.__nombre -= 1
+
 
     def trouver_salle(self, salles, debut, fin):
         # on parcourt toutes les salles et on vérifie si elles sont disponibles
@@ -37,11 +49,11 @@ class Promo(groupe):
     def __init__(self,nom, membres ,etat, acti):
         super().__init__(nom, membres ,etat, acti)
         self.activite = 'CM'
-        if annee == 1:
+        if self.annee == 1:
             self.nombre = 234
-        elif annee == 2:
+        elif self.annee == 2:
             self.nombre = 235
-        elif annee == 3:
+        elif self.annee == 3:
             self.nombre = 124
 
 class TD(groupe):

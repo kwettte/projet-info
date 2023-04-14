@@ -1,21 +1,23 @@
+from Groupe import groupe
+
 class acti():
 
-    def __init__(self, nom, debut: str, fin: str, groupe, usage: str):
+    def __init__(self, nom, debut: str, fin: str, groupe: groupe, usage: str):
         """
         Créer une une activité
         :param nom:
         :param debut: str
         :param fin: str
-        :param groupe:
+        :param groupe: groupe
         """
         self.nom = nom # la matière concernée apparait dans le nom de l'activité
-        self.__debut = debut
-        self.debut = debut
-        self.__fin = fin
-        self.fin = fin
+        self.__debut = debut # vrenvoie l'heure au format tuple
+        self.debut = debut # renvoie l'heure au format h:m
+        self.__fin = fin # vrenvoie l'heure au format tuple
+        self.fin = fin # renvoie l'heure au format h:m
         self.groupe = groupe
         self.usage = usage
-        self.info = False
+        self.info = False # True si besoin d'ordinateurs, par exemple pour un TD d'info
 
     @property
     def debut(self):
