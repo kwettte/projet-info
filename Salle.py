@@ -1,9 +1,9 @@
-
+import Groupe
 
 class local():
 
 
-    def __init__(self, usage, nom, capacite, batiment, etage):
+    def __init__(self, usage, nom, capacite, batiment, etage, debut, fin):
         """
         Créer une salle à une localisation précise (batiment et étage)
         et une capacité d'occupants prédéfinie
@@ -12,6 +12,8 @@ class local():
         :param capacite: int
         :param batiment: str
         :param etage: int
+        :param debut: tuple
+        :param fin: tuple
         """
         self.usage = usage
         self.nom = nom
@@ -20,6 +22,8 @@ class local():
         self.etage = etage
         self.occupe = False # définit l'état de la salle si elle est occupée ou non
         self.occupants = []
+        self.debut = debut
+        self.fin = fin
 
     def ajouter_occupant(self,participant): # méthode pour ajouter des participants dans une salle s'il reste de la place
         # on commence par vérifier s'il reste de la place dans la salle
@@ -51,9 +55,9 @@ class local():
 
     def occupants(self,debut,fin):
         if self.occupe:
-            return f"{self.occupants} dans la salle {self.nom} de {self.debut} à {self.fin}"
+            return f"{self.occupants} dans la salle {self.nom} de {debut} à {fin}"
         else:
-            return f"personne dans la salle {self.nom} de {self.debut} à {self.fin}"
+            return f"personne dans la salle {self.nom} de {debut} à {fin}"
 
     def __str__(self): # retourne le nombre de places occupées sur la capacité totale
         return f"{self.nom} ({len(self.occupants)}/{self.capacite} occupants)"
