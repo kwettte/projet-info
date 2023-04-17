@@ -2,6 +2,7 @@ import Ecole
 import Salle
 import unittest
 
+
 class TestEcole(unittest.TestCase):
 
     def test_ajout_salle(self):

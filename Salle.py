@@ -1,9 +1,7 @@
+
+
 class local():
 
-    """
-    Classe décrivant la définition d'un local dans l'école, d'une salle de
-    classe
-    """
 
     def __init__(self, usage, nom, capacite, batiment, etage):
         """
@@ -50,6 +48,12 @@ class local():
         else:
             # on vérifie si les périodes se chevauchent
             return (fin <= self.debut) or (debut >= self.fin)
+
+    def occupants(self,debut,fin):
+        if self.occupe:
+            return f"{self.occupants} dans la salle {self.nom} de {self.debut} à {self.fin}"
+        else:
+            return f"personne dans la salle {self.nom} de {self.debut} à {self.fin}"
 
     def __str__(self): # retourne le nombre de places occupées sur la capacité totale
         return f"{self.nom} ({len(self.occupants)}/{self.capacite} occupants)"

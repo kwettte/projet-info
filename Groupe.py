@@ -1,16 +1,23 @@
+
+
 class groupe():
 
-    """
-    Création d'une classe groupe d'étudiants à placer dans une salle
-    """
 
-    def __init__(self, nom: str, membres : list,etat : bool, acti: str, annee : int):
+    def __init__(self, nom: str, membres : list, acti: str, annee : int):
+        """
+        Création d'une classe groupe d'étudiants à placer dans une salle
+        :param nom: str
+        :param membres: list
+        :param acti: str
+        :param annee: int
+        """
         self.nom = nom
         self.__membres = membres # la liste des participants
-        self.etat = etat # indique si le groupe d'élèves est placé dans une salle
         self.activite = acti
         self.__nombre = len(membres)
         self.annee = annee # annee de la promotion
+        self.place = False # indique si le groupe d'élèves est placé dans une salle
+
 
     @property
     def membres(self):
@@ -46,8 +53,8 @@ class groupe():
 
 class Promo(groupe):
 
-    def __init__(self,nom, membres ,etat, acti):
-        super().__init__(nom, membres ,etat, acti)
+    def __init__(self,nom, membres, acti, annee):
+        super().__init__(nom, membres , acti, annee)
         self.activite = 'CM'
         if self.annee == 1:
             self.nombre = 234
@@ -58,15 +65,16 @@ class Promo(groupe):
 
 class TD(groupe):
 
-    def __init__(self,nom, membres, etat, acti):
-        super().__init__(nom, membres, etat, acti)
+    def __init__(self,nom, membres, acti, annee):
+        super().__init__(nom, membres, acti, annee)
         self.activite = 'TD'
 
 
 class binome(groupe):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(nom, membres, acti, annee)
+        self.nombre = 2
 
 
 """

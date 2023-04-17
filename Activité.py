@@ -3,21 +3,25 @@ from Groupe import groupe
 class acti():
 
     def __init__(self, nom, debut: str, fin: str, groupe: groupe, usage: str):
+
         """
-        Créer une une activité
+        Création d'une activité d'un groupe donné pendant un créneau prédéfini
         :param nom:
-        :param debut: str
-        :param fin: str
-        :param groupe: groupe
+        :param debut:
+        :param fin:
+        :param groupe:
+        :param usage:
         """
+
         self.nom = nom # la matière concernée apparait dans le nom de l'activité
-        self.__debut = debut # vrenvoie l'heure au format tuple
+        self.__debut = debut # renvoie l'heure au format tuple
         self.debut = debut # renvoie l'heure au format h:m
         self.__fin = fin # vrenvoie l'heure au format tuple
         self.fin = fin # renvoie l'heure au format h:m
         self.groupe = groupe
         self.usage = usage
         self.info = False # True si besoin d'ordinateurs, par exemple pour un TD d'info
+        self.salle = None
 
     @property
     def debut(self):
@@ -74,4 +78,6 @@ class CM(acti):
 class examen(acti):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(eleves, nom)
+        self.salle = salle_dexamen
+
